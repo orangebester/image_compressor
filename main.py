@@ -31,6 +31,7 @@ def compression_check(src_dir_path, dst_dir_path):
 
         if j < optimal_size and file_exist == False:
             img = Image.open(src_dir_path + '\\' + i)
+            img = img.convert("RGB")
             img.save(dst_dir_path + '\\' + new_filename, format=optimal_format)
         elif j > optimal_size and file_exist == False:
             dct_to_compress[i] = j
