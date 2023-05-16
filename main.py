@@ -1,11 +1,12 @@
 import os
 import sys
-import pyheif
 
 from os import listdir
 from os.path import isfile, join
 from PIL import Image
 from settings import src_dir_path, dst_dir_path, optimal_size, optimal_format
+from format_functions import format_check
+
 
 
 def img_check(src_dir_path):
@@ -25,17 +26,18 @@ def img_size(src_dir_path):
 def compression_check(src_dir_path, dst_dir_path):
     dct_to_compress = {}
     for i, j in img_size(src_dir_path).items():
-        file_exist = isfile(dst_dir_path + '\\' + i)
+        file_not_exist = isfile(dst_dir_path + '\\' + i)
 
         filename, ext = os.path.splitext(i)
+        filename = format_check(ext, src_dir_path + '\\' + i, src_dir_path + '\\' + filename)
         new_filename = f"{filename}.jpg"
 
-        if j < optimal_size and file_exist == False:
+        if j < optimal_size and file_not_exist == False:
             img = Image.open(src_dir_path + '\\' + i)
             img = img.convert("RGB")
             img.save(dst_dir_path + '\\' + new_filename, format=optimal_format)
-        elif j > optimal_size and file_exist == False:
-            dct_to_compress[i] = j
+        elif j > optimal_size and file_not_exist == False:
+            dct_to_compress[new_filename] = j
         else:
             pass
     return dct_to_compress
