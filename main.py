@@ -1,5 +1,6 @@
 import os
 import sys
+import pyheif
 
 from os import listdir
 from os.path import isfile, join
