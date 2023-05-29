@@ -3,4 +3,4 @@ It can compress images file size in any format (webp, jpg, png, etc.) to any siz
 
 Just select optimal limit for image size compression and format of compressed images in setting.py
 
-
+WARNING: You need to install MagickWand on your system for script to be working.
