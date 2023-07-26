@@ -1,6 +1,6 @@
 Hi! This is script for image compression.
-It can compress images file size in any format (webp, jpg, png, etc.) to any size you need.
+It can compress images file size in any format (webp, jpg, png, etc.) to any size you need. You need to put files that need to be compressed in input folder and you will get compressed variant in output folder.
 
 Just select optimal limit for image size compression and format of compressed images in setting.py
 
-WARNING: You need to install MagickWand on your system for script to be working.
+WARNING: You need to download and install ImageMagick on your system for script to be working from here: https://imagemagick.org/script/download.php#windows
